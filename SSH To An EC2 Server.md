@@ -15,7 +15,7 @@ In this guide, we will see how to create and add multiple SSH keys to an EC2 ins
 ## Step 1: Create a new SSH key
 To create a new SSH key, you can use the ssh-keygen command. The ssh-keygen command is a tool for creating new authentication keys. It is available on most Linux distributions and macOS. You can use the following command to create a new SSH key:
 
-```ssh-keygen -t rsa -b 4096 -f ./key_name  ```
+```bash ssh-keygen -t rsa -b 4096 -f ./key_name  ```
 
 The -t flag specifies the type of key to create. The -b flag specifies the number of bits in the key to create. The -f flag specifies the file in which to save the key. The command above will create a new SSH key with 4096 bits and save it in a file called key_name.
 
@@ -33,7 +33,7 @@ There are two ways to add the SSH key to the remote EC2 instance. You can either
 ### Option 1: Using the ssh-copy-id
 The ssh-copy-id command is a tool for copying SSH keys to a remote server. You can use the following command to copy the SSH key to the remote server:
 
-```ssh-copy-id -i ./key_name.pub user@remote_server``` 
+```bash ssh-copy-id -i ./key_name.pub user@remote_server``` 
 
 The -i flag specifies the file that contains the public key. The user is the username of the user on the remote server. The remote_server is the IP address or domain name of the remote server.
 
@@ -42,19 +42,19 @@ You can also manually add the key to the authorized_keys file. The authorized_ke
 
 First of all, you need to copy the content of the public key file to your clipboard. Next, connect to the remote server using SSH. You can use the following command to connect to the remote server:
 
-```ssh user@remote_server```
+```bash ssh user@remote_server```
 
 
 The user is the username of the user on the remote server. The remote_server is the IP address or domain name of the remote server. Once you are connected to the remote server, open the authorized_keys file using the following command:
 
-```sudo vi ~/.ssh/authorized_keys```
+```bash sudo vi ~/.ssh/authorized_keys```
 
 Once you are in the authorized_keys file, press the i key to enter insert mode. Paste the content of the public key file to the end of the file. Once you are done, press the esc key to exit insert mode. Then, type :wq and press enter to save the file.
 
 ## Step 3: Test the SSH key
 Once you have copied the public key to the remote server, you can test the SSH key on your local machine. You can use the following command to test the SSH key:
 
-```ssh -i ./key_name user@remote_server```
+```bash ssh -i ./key_name user@remote_server```
 
 The -i flag specifies the file that contains the private key. The user is the username of the user on the remote server. The remote_server is the IP address or domain name of the remote server.
 
