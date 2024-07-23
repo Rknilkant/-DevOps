@@ -1,3 +1,9 @@
+
+# Nginx Setup
+
+
+
+```bash
 ##############################################################################
 # NGINX
 # DOCUMENTATION: https://nginx.org/en/docs/
@@ -214,3 +220,5 @@ server {
     proxy_pass http://node_js;
   }
 }
+```
+
