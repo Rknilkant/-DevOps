@@ -1,4 +1,4 @@
-#Add Multiple SSH keys to an EC2 Server
+# Add Multiple SSH keys to an EC2 Server
 
 
 SSH keys are a way to authenticate yourself to a remote server. They are a more secure way to authenticate yourself to a remote server than using a password. SSH keys are a pair of keys, a public key and a private key. The public key is stored on the remote server and the private key is stored on your local machine. When you try to authenticate yourself to the remote server, the remote server will check if the public key matches the private key. If it does, you are authenticated.
@@ -27,17 +27,17 @@ The private key is the key that you will use to authenticate yourself to the rem
 Public key
 The public key is the key that you will give to the remote server. The remote server will use this key to authenticate you. You can share this key with anyone.
 
-##Step 2: Allow access to the Key
+## Step 2: Allow access to the Key
 There are two ways to add the SSH key to the remote EC2 instance. You can either use the ssh-copy-id command or you can manually add the key to the authorized_keys file.
 
-###Option 1: Using the ssh-copy-id
+### Option 1: Using the ssh-copy-id
 The ssh-copy-id command is a tool for copying SSH keys to a remote server. You can use the following command to copy the SSH key to the remote server:
 
 ```ssh-copy-id -i ./key_name.pub user@remote_server``` 
 
 The -i flag specifies the file that contains the public key. The user is the username of the user on the remote server. The remote_server is the IP address or domain name of the remote server.
 
-###Option 2: Manually add the Key
+### Option 2: Manually add the Key
 You can also manually add the key to the authorized_keys file. The authorized_keys file is a file that contains all the public keys that are allowed to authenticate to the remote server.
 
 First of all, you need to copy the content of the public key file to your clipboard. Next, connect to the remote server using SSH. You can use the following command to connect to the remote server:
@@ -51,7 +51,7 @@ The user is the username of the user on the remote server. The remote_server is 
 
 Once you are in the authorized_keys file, press the i key to enter insert mode. Paste the content of the public key file to the end of the file. Once you are done, press the esc key to exit insert mode. Then, type :wq and press enter to save the file.
 
-##Step 3: Test the SSH key
+## Step 3: Test the SSH key
 Once you have copied the public key to the remote server, you can test the SSH key on your local machine. You can use the following command to test the SSH key:
 
 ```ssh -i ./key_name user@remote_server```
