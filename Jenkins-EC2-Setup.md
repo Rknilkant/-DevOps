@@ -62,6 +62,10 @@ HTTP_PORT=7001
 ```bash
 sudo vi /lib/systemd/system/jenkins.service
 ```
+## Reload systemd daemon
+```bash
+sudo systemctl daemon-reload
+```
 ## Restart Jenkins Service:
 ```bash
 sudo systemctl start jenkins
